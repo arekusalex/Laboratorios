@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var actionResultButton: Button
     private lateinit var resultTextView: TextView
     private lateinit var weightResultTextView: TextView
+    private lateinit var rangeTextView:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         actionResultButton = findViewById(R.id.calculate_button)
         resultTextView = findViewById(R.id.bmi_result_text_view)
         weightResultTextView = findViewById(R.id.bmi_weight_text_view)
+        rangeTextView = findViewById(R.id.normal_range_text_view)
     }
 
     private fun setListener() {
@@ -52,26 +55,33 @@ class MainActivity : AppCompatActivity() {
 
     private fun result(number: Float) {
         resultTextView.text = number.toString()
+        resultTextView.isVisible = true
+        rangeTextView.text = "(Normal range is 18.5 - 24.9)"
+        rangeTextView.isVisible = true
 
 
         if(number < 18.5) {
             weightResultTextView.text = "Underweight"
             weightResultTextView.setTextColor(ContextCompat.getColor(this, R.color.under_weight))
+            weightResultTextView.isVisible = true
         }
 
         if(number in 18.5 .. 24.99) {
             weightResultTextView.text = "Healthy"
             weightResultTextView.setTextColor(ContextCompat.getColor(this, R.color.normal_weight))
+            weightResultTextView.isVisible = true
         }
 
         if(number in 25.0 .. 29.99) {
             weightResultTextView.text = "Overweight"
             weightResultTextView.setTextColor(ContextCompat.getColor(this, R.color.over_weight))
+            weightResultTextView.isVisible = true
         }
 
         if(number > 30) {
-            resultTextView.text = "Obese"
-            resultTextView.setTextColor(ContextCompat.getColor(this, R.color.obese))
+            weightResultTextView.text = "Obese"
+            weightResultTextView.setTextColor(ContextCompat.getColor(this, R.color.obese))
+            weightResultTextView.isVisible = true
         }
     }
 }
