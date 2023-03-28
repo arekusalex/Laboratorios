@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lab03</string>
+    <string name="cantidad_title">Cantidad de dinero</string>
+    <string name="cantidad">0</string>
+    <string name="five_cents">$ 0.05</string>
+    <string name="ten_cents">$ 0.10</string>
+    <string name="quarter_coin">$ 0.25</string>
+    <string name="dollar_coin">$ 1.00</string>
+</resources>
