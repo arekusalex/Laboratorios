@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab04</string>
+    <string name="name_label">Nombre</string>
+    <string name="email_label">Correo electronico</string>
+    <string name="phone_label">Numero de telefono</string>
+    <string name="title">Rellena la siguiente informacion</string>
+    <string name="save_button_string">GUARDAR</string>
+    <string name="share">COMPARTIR</string>
+</resources>
