@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Lab05</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="main_title_fragment">Billboard</string>
+    <string name="second_title_fragment">Star Wars episodio 3: La Venganza de los Sith</string>
+    <string name="third_title_fragment">New Movie</string>
+    <string name="score_second_movie">9.5</string>
+    <string name="title_second_movie">Harry Potter y la Piedra Filosofal</string>
+    <string name="score_first_movie">9.8</string>
+    <string name="title_first_movie">Star Wars episodio 3: La Venganza de los Sith</string>
+    <string name="description_second_mvie">movie image</string>
+    <string name="add_new_movie_button">Add new movie</string>
+
 </resources>
