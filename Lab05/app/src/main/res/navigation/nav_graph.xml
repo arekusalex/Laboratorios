@@ -6,9 +6,9 @@
     app:startDestination="@id/fragment_main">
     <fragment
         android:id="@+id/fragment_main"
-        android:name="com.arekusalex.lab05.FragmentMain"
+        android:name="com.arekusalex.lab05.ui.movie.BillboardFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/billboard" >
         <action
             android:id="@+id/action_fragment_main_to_fragment_first"
             app:destination="@id/fragment_first" />
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_first"
-        android:name="com.arekusalex.lab05.FragmentFirst"
+        android:name="com.arekusalex.lab05.ui.movie.MovieDetailsFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/movie_details" />
     <fragment
         android:id="@+id/fragment_second"
-        android:name="com.arekusalex.lab05.FragmentSecond"
+        android:name="com.arekusalex.lab05.ui.movie.NewMovieFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/new_movie" />
 </navigation>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundLayout"
-    tools:context=".FragmentMain">
+    tools:context=".ui.movie.BillboardFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -26,6 +26,8 @@
         android:layout_width="370dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:background="@color/cardLayout"
+        android:backgroundTint="@color/cardLayout"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,13 +53,15 @@
                     android:id="@+id/movie_title_card_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_first_movie" />
+                    android:text="@string/title_first_movie"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/movie_score_card_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/score_first_movie" />
+                    android:text="@string/score_first_movie"
+                    android:textColor="@color/calification" />
             </LinearLayout>
 
         </LinearLayout>
@@ -69,6 +73,7 @@
         android:layout_width="370dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/cardLayout"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,13 +101,15 @@
                     android:id="@+id/movie_title_card_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_second_movie" />
+                    android:text="@string/title_second_movie"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/movie_score_card_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/score_second_movie" />
+                    android:text="@string/score_second_movie"
+                    android:textColor="@color/calification" />
             </LinearLayout>
 
         </LinearLayout>

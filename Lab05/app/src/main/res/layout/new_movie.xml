@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundLayout"
-    tools:context=".FragmentSecond">
+    tools:context=".ui.movie.NewMovieFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -35,7 +35,9 @@
             android:id="@+id/name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:background="@color/cardLayout"
+            android:hint="@string/hint_name"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,7 +55,9 @@
             android:id="@+id/category_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Category" />
+            android:background="@color/cardLayout"
+            android:hint="@string/hint_category"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -71,7 +75,9 @@
             android:id="@+id/description_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description" />
+            android:background="@color/cardLayout"
+            android:hint="@string/hint_description"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +95,10 @@
             android:id="@+id/score_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Calification" />
+            android:background="@color/cardLayout"
+            android:hint="@string/hint_qualification"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -97,7 +106,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="SUBMIT"
+        android:backgroundTint="@color/buttonColor"
+        android:text="@string/button_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />

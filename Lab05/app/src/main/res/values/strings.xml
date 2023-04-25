@@ -10,5 +10,10 @@
     <string name="title_first_movie">Star Wars episodio 3: La Venganza de los Sith</string>
     <string name="description_second_mvie">movie image</string>
     <string name="add_new_movie_button">Add new movie</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_category">Category</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_qualification">Calification</string>
+    <string name="button_submit">SUBMIT</string>
 
 </resources>
