@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.arekusalex.lab05.R
 import com.arekusalex.lab05.data.category
 import com.arekusalex.lab05.data.model.MovieModel
+import com.arekusalex.lab05.databinding.NewMovieBinding
 import com.google.android.material.textfield.TextInputEditText
 
 class NewMovieFragment : Fragment() {
@@ -20,6 +22,7 @@ class NewMovieFragment : Fragment() {
     private lateinit var descriptionEditText: TextInputEditText
     private lateinit var qualificationEditText: TextInputEditText
     private lateinit var submitButton: Button
+    private lateinit var binding: NewMovieBinding
 
     private val movieViewModel: MovieViewModel by activityViewModels {
         MovieViewModel.Factory
@@ -29,8 +32,8 @@ class NewMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.new_movie, container, false)
+        binding = NewMovieBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,6 +50,29 @@ class NewMovieFragment : Fragment() {
             )
 
             Log.d("List: ", movieViewModel.getMovies().toString())
+        }
+    }
+
+    private fun setViewModel() {
+        binding.viewmodel = movieViewModel
+    }
+
+    private fun observeStatus() {
+        movieViewModel.status.observe(viewLifecycleOwner) {
+            status -> when {
+                status.equals(MovieViewModel.WRONG_INFORMATION) -> {
+                    Log.d("APP_TAG", status)
+                    movieViewModel.clearStatus()
+                }
+                status.equals(MovieViewModel.MOVIE_CREATED) -> {
+                    Log.d("APP_TAG", status)
+                    Log.d("APP_TAG", movieViewModel.getMovies().toString())
+
+                    movieViewModel.clearStatus()
+                    findNavController().popBackStack()
+                }
+            }
+
         }
     }
 
