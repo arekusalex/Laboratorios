@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="viewmodel" type="com.arekusalex.lab05.ui.movie.MovieViewModel"/>
+        <variable name="viewmodel" type="com.arekusalex.lab05.ui.movie.viewmodel.MovieViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundLayout"
-        tools:context=".ui.movie.NewMovieFragment">
+        tools:context=".ui.movie.newmovie.NewMovieFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
@@ -125,3 +125,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+

@@ -1,14 +1,13 @@
-package com.arekusalex.lab05.ui.movie
+package com.arekusalex.labo5.ui.movie.viewmodel
 
-import android.text.Spannable.Factory
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.arekusalex.lab05.MovieReviewerApplication
-import com.arekusalex.lab05.data.model.MovieModel
-import com.arekusalex.lab05.repositories.MovieRepository
+import com.arekusalex.labo5.MovieReviewerApplication
+import com.arekusalex.labo5.data.model.MovieModel
+import com.arekusalex.labo5.repositories.MovieRepository
 
 class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
 
@@ -31,7 +30,7 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
         return true
     }
 
-    private fun clearData() {
+    fun clearData() {
         name.value = ""
         category.value = ""
         description.value = ""
@@ -60,10 +59,17 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
         status.value = MOVIE_CREATED
     }
 
+    fun setSelectedMovie(movie: MovieModel) {
+        name.value = movie.name
+        category.value = movie.category
+        description.value = movie.description
+        qualification.value = movie.qualification
+    }
+
     companion object {
         val Factory = viewModelFactory {
             initializer {
-                val app = this[APPLICATION_KEY] as MovieReviewerApplication
+                val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MovieReviewerApplication
                 MovieViewModel(app.movieRepository)
             }
         }

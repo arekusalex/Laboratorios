@@ -1,18 +1,20 @@
-package com.arekusalex.lab05.ui.movie
+package com.arekusalex.labo5.ui.movie.newmovie
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.arekusalex.lab05.R
-import com.arekusalex.lab05.data.category
-import com.arekusalex.lab05.data.model.MovieModel
-import com.arekusalex.lab05.databinding.NewMovieBinding
+import com.arekusalex.labo5.R
+import com.arekusalex.labo5.data.model.MovieModel
+import com.arekusalex.labo5.databinding.FragmentNewMovieBinding
+import com.arekusalex.labo5.ui.movie.viewmodel.MovieViewModel
 import com.google.android.material.textfield.TextInputEditText
 
 class NewMovieFragment : Fragment() {
@@ -22,7 +24,8 @@ class NewMovieFragment : Fragment() {
     private lateinit var descriptionEditText: TextInputEditText
     private lateinit var qualificationEditText: TextInputEditText
     private lateinit var submitButton: Button
-    private lateinit var binding: NewMovieBinding
+    private lateinit var _binding: FragmentNewMovieBinding
+    private val binding get() = _binding
 
     private val movieViewModel: MovieViewModel by activityViewModels {
         MovieViewModel.Factory
@@ -32,8 +35,17 @@ class NewMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = NewMovieBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentNewMovieBinding.inflate(inflater, container, false)
+        val view = binding.root
+        binding.composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                MaterialTheme {
+                    Button()
+                }
+            }
+        }
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,19 +71,19 @@ class NewMovieFragment : Fragment() {
 
     private fun observeStatus() {
         movieViewModel.status.observe(viewLifecycleOwner) {
-            status -> when {
-                status.equals(MovieViewModel.WRONG_INFORMATION) -> {
-                    Log.d("APP_TAG", status)
-                    movieViewModel.clearStatus()
-                }
-                status.equals(MovieViewModel.MOVIE_CREATED) -> {
-                    Log.d("APP_TAG", status)
-                    Log.d("APP_TAG", movieViewModel.getMovies().toString())
-
-                    movieViewModel.clearStatus()
-                    findNavController().popBackStack()
-                }
+                status -> when {
+            status.equals(MovieViewModel.WRONG_INFORMATION) -> {
+                Log.d("APP_TAG", status)
+                movieViewModel.clearStatus()
             }
+            status.equals(MovieViewModel.MOVIE_CREATED) -> {
+                Log.d("APP_TAG", status)
+                Log.d("APP_TAG", movieViewModel.getMovies().toString())
+
+                movieViewModel.clearStatus()
+                findNavController().popBackStack()
+            }
+        }
 
         }
     }
