@@ -1,4 +1,4 @@
-package com.arekusalex.labo5
+package com.arekusalex.parcial1
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,20 +10,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.arekusalex.labo5.ui.theme.Labo5Theme
+import com.arekusalex.parcial1.ui.theme.Parcial1Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Labo5Theme {
+            Parcial1Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
-                    Greeting("Alexander")
+                    Greeting("Android")
                 }
             }
         }
@@ -41,7 +40,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Labo5Theme {
-        Greeting("Alexander")
+    Parcial1Theme {
+        Greeting("Android")
     }
 }

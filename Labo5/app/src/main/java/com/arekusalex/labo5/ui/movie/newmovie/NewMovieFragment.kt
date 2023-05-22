@@ -24,8 +24,8 @@ class NewMovieFragment : Fragment() {
     private lateinit var descriptionEditText: TextInputEditText
     private lateinit var qualificationEditText: TextInputEditText
     private lateinit var submitButton: Button
-    private lateinit var _binding: FragmentNewMovieBinding
-    private val binding get() = _binding
+    private lateinit var binding: FragmentNewMovieBinding
+
 
     private val movieViewModel: MovieViewModel by activityViewModels {
         MovieViewModel.Factory
@@ -35,17 +35,8 @@ class NewMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNewMovieBinding.inflate(inflater, container, false)
-        val view = binding.root
-        binding.composeView.apply {
-            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-            setContent {
-                MaterialTheme {
-                    Button()
-                }
-            }
-        }
-        return view
+        binding = FragmentNewMovieBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
