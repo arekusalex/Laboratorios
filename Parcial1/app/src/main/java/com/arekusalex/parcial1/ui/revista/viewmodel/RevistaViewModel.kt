@@ -1,4 +1,4 @@
-package com.arekusalex.parcial1.ui.revista.recyclerview.viewmodel
+package com.arekusalex.parcial1.ui.revista.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

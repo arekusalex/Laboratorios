@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Parcial1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="revistas">REVISTAS</string>
+    <string name="el_economista">EL ECONOMISTA</string>
+    <string name="finanzas">FINANZAS</string>
 </resources>
